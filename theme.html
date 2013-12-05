@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <title>{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="stylesheet" href="YOUR-OWN-URL-TO/prism.css"/>
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <style type="text/css">
+            /*
+            When setting the primary font stack, apply it to the Pure grid units along with
+            the `body`. Pure Grids use specific font stacks to ensure the greatest
+            OS/browser compatibility.
+            */
+            body,
+            .pure-g [class *= "pure-u"],
+            .pure-g-r [class *= "pure-u"],
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 1.063em;
+                color: #333;
+            }
+            @media (max-width: 767px) {
+                body,
+                .pure-g [class *= "pure-u"],
+                .pure-g-r [class *= "pure-u"],
+                h1, h2, h3, h4, h5, h6 {
+                    font-size: 1.0em;
+                }
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: Georgia, Times, "Times New Roman", serif;
+                font-weight: normal;
+            }
+            h1 { font-size: 3.157em; }
+            h2 { font-size: 2.369em; }
+            h3 { font-size: 1.777em; }
+            h4 { font-size: 1.333em; }
+            h5 { font-size: 1em; }
+            h6 { font-size: 0.75em; }
+            small { font-size: 0.563em; }
+            pre code { font-size: 0.75em; }
+            h1.brand-title, h2.brand-tagline { text-align: center; }
+            h1.brand-title { margin-bottom: 0px; color: #F06; }
+            h2.brand-tagline { font-size: 1.333em; font-style: italic; color: #666; }
+            header { margin-bottom: 3em; }
+            header, header hgroup { border-bottom: 1px solid #DEDEDE; }
+            header .pure-menu, footer .pure-menu { text-align: center; margin: 1em 0em; }
+            a {
+                text-decoration: none;
+                color: #F06;
+            }
+            a:hover,
+            a:focus {
+                text-decoration: underline;
+            }
+            article { margin-bottom: 3em; }
+            .content { max-width: 999px; margin: 0 auto; }
+            blockquote {
+                font-family: "Georgia", serif;
+                color: #666;
+                font-size: 1.333em;
+                margin: 0px;
+                padding: 1em 2em;
+                border-left: 3em solid #ddd;
+                border-right: 3em solid #ddd;
+            }
+            blockquote cite { 
+                display: block;
+                font-size: 0.75em;
+                margin-top: 1em;
+            }
+            figure { background-color: #DDD; }
+            figure figcaption { 
+                font-family: "Georgia", serif;
+                color: #666;
+                text-align: center 
+            }
+            figure figcaption p { 
+                margin: 0px;
+                padding: 1em 0px;
+            }
+            .pure-menu .chat { padding: 1em; }
+            .pure-menu .chat li { padding: 0.5em 0px; }
+            .pure-menu .chat li.even{ background-color: #DDD; }
+            article.text h1 { margin-bottom: 0px; }
+            article.text header p { margin-top: 0.1em; font-style: italic; }
+            article.text .post-body { width: 70%;  margin: 0 auto; }
+            article.text .post-body p, article.text .post-body pre, blockquote { margin: 1em auto 0 auto; text-align: justify; text-justify: newspaper; }
+            article.text .post-body p img { width: 500px; margin: 0 auto; }
+            article header img {
+                border-radius: 50px;
+                margin-bottom: -0.2em;
+            }
+
+            @media (max-width: 767px) {
+                blockquote {
+                    padding: 1em 2em;
+                    border-left: 1em solid #ddd;
+                    border-right: 1em solid #ddd;
+                }
+
+                article.text .post-body { width: 70%; } { width: 80%; }
+            }
+
+            @media (max-width: 660px) {
+                article.text .post-body { width: 95%; }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pure-g-r" id="layout">
+
+            <div class="pure-u-1">
+                <div class="content">
+                
+                    <header class="header">
+                        <hgroup>
+                            <h1 class="brand-title">{Title}</h1>
+                            <h2 class="brand-tagline">Tech and Passion with love from Studio Melipone</h2>
+                        </hgroup>
+
+                        {block:Description}
+                            <p id="description">{Description}</p>
+                        {/block:Description}
+
+                        <nav class="pure-menu pure-menu-open pure-menu-horizontal">
+                            <ul>
+                                <li><a href="http://blog.studiomelipone.eu/tagged/business">#business</a></li>
+                                <li><a href="http://blog.studiomelipone.eu/tagged/tech">#tech</a></li>
+                                <li><a href="http://blog.studiomelipone.eu/tagged/wtf">#wtf</a></li>
+                                <li><a href="http://blog.studiomelipone.eu/archives">Archives</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                    <div>
+                        {block:Posts}
+                            <article class="{PostType}">
+                                {block:Text}
+                                    <header>
+                                        {block:Title}
+                                            <h1><a href="{Permalink}">{Title}</a></h1>
+                                        {/block:Title}
+
+                                        <p>
+                                            <img alt="{PostAuthorName}'s avatar" height="24" width="24" src="{PostAuthorPortraitURL-24}"> <a href="#" class="post-author">{PostAuthorName}</a>
+                                            {block:Date} le {DayOfMonthWithZero} {Month} {Year} {/block:Date}
+                                        </p>
+                                    </header>
+                                    <div class="post-body">
+                                        {Body}
+                                    </div>
+                                    {block:PermalinkPage}
+                                        <hr/>
+                                        {block:HasTags}
+                                            taggué 
+                                            {block:Tags}
+                                                <a href="{TagURL}">{Tag}</a>
+                                            {/block:Tags}
+                                        {/block:HasTags}
+                                    {/block:PermalinkPage}
+                                    {block:PostNotes} 
+                                        <hr/>
+                                        {PostNotes-16}
+                                    {/block:PostNotes}
+                                {/block:Text}
+
+                                {block:Photo}
+                                    <figure>
+                                        <img src="{PhotoURL-1280}" alt="{PhotoAlt}"/>
+                                        {block:Caption}
+                                            <figcaption>{Caption}</figcaption>
+                                        {/block:Caption}
+                                    </figure>
+                                {/block:Photo}
+
+                                {block:Panorama}
+                                    {LinkOpenTag}
+                                        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                                    {LinkCloseTag}
+
+                                    {block:Caption}
+                                        <div class="caption">{Caption}</div>
+                                    {/block:Caption}
+                                {/block:Panorama}
+
+                                {block:Photoset}
+                                    {Photoset-500}
+
+                                    {block:Caption}
+                                        <div class="caption">{Caption}</div>
+                                    {/block:Caption}
+                                {/block:Photoset}
+
+                                {block:Quote}
+                                    <blockquote>
+                                        {Quote}
+                                        {block:Source}
+                                            <cite>{Source}</cite>
+                                        {/block:Source}
+                                    </blockquote>
+                                {/block:Quote}
+
+                                {block:Link}
+                                    <h1><a href="{URL}" class="link" {Target}><i class="fa fa-external-link"></i> {Name}</a></h1>
+                                    {block:Description}
+                                        <div class="description">{Description}</div>
+                                    {/block:Description}
+                                {/block:Link}
+
+                                {block:Chat}
+                                    {block:Title}
+                                        <h1><a href="{Permalink}">{Title}</a></h1>
+                                    {/block:Title}
+                                    <div class="pure-menu pure-menu-open">
+                                        <ul class="chat">
+                                            {block:Lines}
+                                                <li class="{Alt} user_{UserNumber}">
+                                                    {block:Label}
+                                                        <strong>{Label}</strong>
+                                                    {/block:Label}
+                                                    {Line}
+                                                </li>
+                                            {/block:Lines}
+                                        </ul>
+                                    </div>
+                                {/block:Chat}
+
+                                {block:Video}
+                                    {Video-500}
+
+                                    {block:Caption}
+                                        <div class="caption">{Caption}</div>
+                                    {/block:Caption}
+                                {/block:Video}
+
+                                {block:Audio}
+                                    {AudioPlayerBlack}
+
+                                    {block:Caption}
+                                        <div class="caption">{Caption}</div>
+                                    {/block:Caption}
+                                {/block:Audio}
+                            </article>
+                        {/block:Posts}
+                    </div>
+
+                    <footer class="footer">
+                        <ul class="pure-paginator">
+                            {block:PreviousPage}
+                                <li><a class="pure-button prev" href="{PreviousPage}">&#171;</a></li>
+                            {/block:PreviousPage}
+
+                            {block:NextPage}
+                                <li><a class="pure-button next" href="{NextPage}">&#187;</a></li>
+                            {/block:NextPage}
+                        </ul>
+                        <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                            <ul>
+                                <li><a href="http://studiomelipone.eu">Studio Melipone</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="http://twitter.com/studiomelipone">Twitter</a></li>
+                                <li><a href="http://github.com/studiomelipone">Github</a></li>
+                            </ul>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'YOUR-OWN-TRACKER-ID', 'freshfromthehive.eu');
+          ga('send', 'pageview');
+
+        </script>
+        <script type='text/javascript' src="YOUR-OWN-URL-TO/prism.js"></script>
+    </body>
+</html>
